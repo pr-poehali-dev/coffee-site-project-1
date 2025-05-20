@@ -1,66 +1,119 @@
-
-import React from 'react';
-import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
-import Icon from '@/components/ui/icon';
+import React from "react";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import Icon from "./ui/icon";
+import QrCode from "./QrCode";
 
 const Footer: React.FC = () => {
   return (
-    <footer className="bg-coffee-dark text-coffee-cream py-12">
-      <div className="container">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+    <footer className="bg-amber-900 text-white pt-12 pb-6">
+      <div className="container mx-auto px-4">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
           <div>
-            <h3 className="text-xl font-bold mb-4">Кофейный Дом</h3>
-            <p className="mb-4">Мы стремимся предоставить лучший кофейный опыт, используя только свежеобжаренные зерна высшего качества.</p>
+            <h3 className="text-xl font-bold mb-4">Кофейный дом</h3>
+            <p className="mb-4 text-amber-100">
+              Мы делаем лучший кофе в городе уже более 10 лет. Приходите и
+              убедитесь сами!
+            </p>
             <div className="flex space-x-4">
-              <Button variant="ghost" size="icon" className="rounded-full hover:bg-coffee-medium">
-                <Icon name="Instagram" className="h-5 w-5" />
-              </Button>
-              <Button variant="ghost" size="icon" className="rounded-full hover:bg-coffee-medium">
-                <Icon name="Facebook" className="h-5 w-5" />
-              </Button>
-              <Button variant="ghost" size="icon" className="rounded-full hover:bg-coffee-medium">
-                <Icon name="Twitter" className="h-5 w-5" />
-              </Button>
+              <a
+                href="#"
+                className="text-white hover:text-amber-200 transition duration-300"
+              >
+                <Icon name="Instagram" />
+              </a>
+              <a
+                href="#"
+                className="text-white hover:text-amber-200 transition duration-300"
+              >
+                <Icon name="Facebook" />
+              </a>
+              <a
+                href="#"
+                className="text-white hover:text-amber-200 transition duration-300"
+              >
+                <Icon name="Twitter" />
+              </a>
             </div>
           </div>
-          
+
           <div>
-            <h3 className="text-xl font-bold mb-4">Контакты</h3>
-            <div className="space-y-2">
-              <p className="flex items-center gap-2">
-                <Icon name="MapPin" className="h-5 w-5" />
-                <span>ул. Кофейная, 42, Москва</span>
-              </p>
-              <p className="flex items-center gap-2">
-                <Icon name="Phone" className="h-5 w-5" />
-                <span>+7 (999) 123-45-67</span>
-              </p>
-              <p className="flex items-center gap-2">
-                <Icon name="Mail" className="h-5 w-5" />
-                <span>info@coffee-house.ru</span>
-              </p>
-              <p className="flex items-center gap-2">
-                <Icon name="Clock" className="h-5 w-5" />
-                <span>Пн-Вс: 8:00 - 22:00</span>
-              </p>
-            </div>
+            <h3 className="text-xl font-bold mb-4">Навигация</h3>
+            <ul className="space-y-2">
+              <li>
+                <a
+                  href="#"
+                  className="text-amber-100 hover:text-white transition duration-300"
+                >
+                  Главная
+                </a>
+              </li>
+              <li>
+                <a
+                  href="#about"
+                  className="text-amber-100 hover:text-white transition duration-300"
+                >
+                  О нас
+                </a>
+              </li>
+              <li>
+                <a
+                  href="#coffee"
+                  className="text-amber-100 hover:text-white transition duration-300"
+                >
+                  Наш кофе
+                </a>
+              </li>
+              <li>
+                <a
+                  href="#menu"
+                  className="text-amber-100 hover:text-white transition duration-300"
+                >
+                  Меню
+                </a>
+              </li>
+              <li>
+                <a
+                  href="#contacts"
+                  className="text-amber-100 hover:text-white transition duration-300"
+                >
+                  Контакты
+                </a>
+              </li>
+            </ul>
           </div>
-          
+
           <div>
-            <h3 className="text-xl font-bold mb-4">Подписка</h3>
-            <p className="mb-4">Подпишитесь на нашу рассылку, чтобы получать новости о специальных предложениях и новинках.</p>
-            <div className="flex gap-2">
-              <Input placeholder="Ваш email" className="bg-coffee-medium border-coffee-medium text-coffee-cream placeholder:text-coffee-cream/60" />
-              <Button className="bg-coffee-light text-coffee-dark hover:bg-coffee-cream">
-                <Icon name="Send" className="h-5 w-5" />
-              </Button>
-            </div>
+            <h3 className="text-xl font-bold mb-4">Часы работы</h3>
+            <ul className="space-y-2">
+              <li className="flex justify-between">
+                <span>Понедельник - Пятница</span>
+                <span>8:00 - 22:00</span>
+              </li>
+              <li className="flex justify-between">
+                <span>Суббота</span>
+                <span>9:00 - 23:00</span>
+              </li>
+              <li className="flex justify-between">
+                <span>Воскресенье</span>
+                <span>10:00 - 20:00</span>
+              </li>
+            </ul>
+          </div>
+
+          <div className="qr-code-container">
+            <QrCode
+              size={150}
+              className="bg-white rounded-md"
+              title="Отсканируйте, чтобы посетить сайт"
+            />
           </div>
         </div>
-        
-        <div className="mt-12 pt-6 border-t border-coffee-medium text-center text-sm text-coffee-cream/70">
-          <p>© {new Date().getFullYear()} Кофейный Дом. Все права защищены.</p>
+
+        <div className="border-t border-amber-800 pt-6 text-center">
+          <p>
+            &copy; {new Date().getFullYear()} Кофейный дом. Все права защищены.
+          </p>
         </div>
       </div>
     </footer>
